@@ -7,11 +7,11 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT;
+app.use(express.json());
 
-// *Routes Middleware
+import authRoutes from "./routes/auth.routes.js"
 
-
-// app.use("/api/v1/analytics") assignment 2
+app.use("/api/auth", authRoutes);
 
 app.listen(PORT , ()=>{
     console.log(`Server is running on PORT http://localhost:${PORT}`);
